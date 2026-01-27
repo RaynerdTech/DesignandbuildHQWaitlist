@@ -1,26 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Preloader from './components/Preloader';
+import React, { useState } from 'react';
 import './App.css';
+import './animation.css';
 
 export default function WaitlistPage() {
-  const [isLoading, setIsLoading] = useState(true);
-  
-   // Simulate app initialization
-  useEffect(() => {
-    // Add any initialization logic here (API calls, asset loading, etc.)
-    const initializeApp = async () => {
-      // Your initialization code
-      // await fetchInitialData();
-      // await loadAssets();
-    };
-
-    initializeApp();
-  }, []);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
   const FORMSPREE_URL = "https://formspree.io/f/xzddgqnl"; 
 
   const [formData, setFormData] = useState({
@@ -67,16 +49,10 @@ export default function WaitlistPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
-       {isLoading && (
-        <Preloader 
-          onLoadingComplete={handleLoadingComplete}
-          minDisplayTime={2000} // Minimum display time in milliseconds
-        />
-      )}
 
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 animate-fadeIn"
         style={{
           backgroundImage: 'url(/background.jpg)',
           backgroundSize: 'cover',
@@ -88,7 +64,7 @@ export default function WaitlistPage() {
       {/* Desktop/Tablet Glow SVGs */}
       <div className="hidden md:block">
         {/* Top Right Glow */}
-        <div className="absolute top-0 right-0 pointer-events-none" style={{ width: '530px', height: '454.663px' }}>
+        <div className="absolute top-0 right-0 pointer-events-none animate-fadeIn" style={{ width: '530px', height: '454.663px' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="630" height="444" viewBox="0 0 630 444" fill="none" className="w-full h-full">
             <defs>
               <filter id="filter0_f_desktop1" x="-0.000152588" y="-276.83" width="795.336" height="720.324" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -109,7 +85,7 @@ export default function WaitlistPage() {
         </div>
 
         {/* Bottom Left Glow */}
-        <div className="absolute bottom-0 left-0 pointer-events-none" style={{ width: '110px', height: '394.167px' }}>
+        <div className="absolute bottom-0 left-0 pointer-events-none animate-fadeIn" style={{ width: '110px', height: '394.167px' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="204" height="546" viewBox="0 0 204 546" fill="none" className="w-full h-full">
             <defs>
               <filter id="filter0_f_desktop2" x="-55.7998" y="-3.05176e-05" width="259.593" height="545.051" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -130,7 +106,7 @@ export default function WaitlistPage() {
         </div>
 
         {/* Bottom Right Glow */}
-        <div className="absolute bottom-0 right-100 pointer-events-none" style={{ width: '282.446px', height: '192px' }}>
+        <div className="absolute bottom-0 right-100 pointer-events-none animate-fadeIn" style={{ width: '282.446px', height: '192px' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="581" height="348" viewBox="0 0 581 348" fill="none" className="w-full h-full">
             <defs>
               <filter id="filter0_f_desktop3" x="0.000167847" y="-7.62939e-05" width="580.126" height="489.679" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -154,7 +130,7 @@ export default function WaitlistPage() {
       {/* Mobile Glow SVGs */}
       <div className="md:hidden">
         {/* Top Right Glow Mobile */}
-        <div className="absolute top-0 right-0 pointer-events-none" style={{ width: '530px', height: '454.663px' }}>
+        <div className="absolute top-0 right-0 pointer-events-none animate-fadeIn" style={{ width: '530px', height: '454.663px' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="363" height="589" viewBox="0 0 363 589" fill="none" className="w-full h-full">
             <defs>
               <filter id="filter0_f_mobile1" x="9.15527e-05" y="-131.83" width="795.336" height="720.324" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -175,7 +151,7 @@ export default function WaitlistPage() {
         </div>
 
         {/* Bottom Left Glow Mobile */}
-        <div className="absolute bottom-0 left-0 pointer-events-none" style={{ width: '110px', height: '394.167px' }}>
+        <div className="absolute bottom-0 left-0 pointer-events-none animate-fadeIn" style={{ width: '110px', height: '394.167px' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="127" height="449" viewBox="0 0 127 449" fill="none" className="w-full h-full">
             <defs>
               <filter id="filter0_f_mobile2" x="-132.8" y="0" width="259.593" height="545.051" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -202,31 +178,31 @@ export default function WaitlistPage() {
         <img
   src="/logo.png"
   alt="DesignandBuildHQ logo"
-  className="w-[180px] h-auto"
+  className="w-[180px] h-auto animate-slideDown"
 />
 
        
         {/* Main Content Container */}
         <div className="w-full max-w-182.5 md:max-w-4xl flex flex-col items-center text-center">
           {/* Heading */}
-          <h1 className="text-white text-center font-abhaya font-extrabold text-[36px] tracking-[8px] leading-[48px] md:leading-[64px] mb-4">
+          <h1 className="text-white text-center font-abhaya font-extrabold text-[36px] tracking-[8px] leading-[48px] md:leading-[64px] mb-4 animate-slideDown animation-delay-200">
             WELCOME TO THE HQ
           </h1>
 
           {/* Partner Description Section */}
-          <div className="max-w-2xl mx-auto mb-6 px-4">
+          <div className="max-w-2xl mx-auto mb-6 px-4 animate-slideDown animation-delay-400">
             <p className="text-white/80 font-sf text-[14px] md:text-[16px] leading-[22px] md:leading-[26px] tracking-[0.5px]">
               Design & Build HQ partners with UK and EU companies to build dedicated product and long-term engineering teams that prioritise quality, continuity, and sustainable growth.
             </p>
           </div>
 
           {/* Subheading */}
-          <p className="text-white text-center font-sf text-[14px] font-normal leading-[24px] tracking-[2px]  md:mb-12 max-w-md mx-auto px-8">
+          <p className="text-white text-center font-sf text-[14px] font-normal leading-[24px] tracking-[2px]  md:mb-12 max-w-md mx-auto px-8 animate-slideDown animation-delay-600">
             Join the waitlist and get a 30% discount when our site is live
           </p>
 
           {/* Form */}
-          <div className="w-full md:w-[743px] md:px-22 md:py-6 md:bg-black">
+          <div className="w-full md:w-[743px] md:px-22 md:py-6 md:bg-black animate-slideUp animation-delay-800">
             <h2 className="text-white text-center font-abhaya text-[16px] font-[800] leading-[25px] tracking-[3.125px] mb-6 md:mb-8 mt-8 md:mt-0">
               JOIN WAITLIST
             </h2>
@@ -336,7 +312,7 @@ export default function WaitlistPage() {
           </div>
 
           {/* Footer - Mobile Only */}
-          <div className="mt-auto pt-14 pb-8">
+          <div className="mt-auto pt-14 pb-8 animate-fadeIn animation-delay-1000">
             {/* Social Media Icons */}
             <div className="flex justify-center gap-5 mb-8">
               <a 
